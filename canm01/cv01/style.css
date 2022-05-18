@@ -1,0 +1,104 @@
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro);
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f2f2f2;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.card {
+  height: 35rem;
+  width: 35rem;
+  background: #f2f2f2;
+  box-shadow: -32px -32px 35px white, 32px 32px 35px rgba(0, 0, 0, 0.15);
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+}
+.card .card-image {
+  height: 6.5rem;
+  width: 6.5rem;
+  border-radius: 50%;
+  background: #f2f2f2;
+  box-shadow: -6px -6px 10px white, 4px 4px 15px rgba(0, 0, 0, 0.15);
+  margin-top: 2.5rem;
+}
+.card .card-body {
+  margin-top: 1rem;
+  font-family: "Source Sans Pro";
+  text-align: center;
+  letter-spacing: 0.1rem;
+}
+.card .card-body_name {
+  margin-top: 0.8rem;
+  font-size: 1rem;
+  text-transform: uppercase;
+  color: #707174;
+  font-weight: 600;
+  text-shadow: -5px -5px 10px white, 3px 3px 15px rgba(0, 0, 0, 0.15);
+}
+.card .card-body_job {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  color: #bbbbbb;
+  font-weight: 400;
+  text-shadow: 0px -5px 10px white, 0px 2px 10px rgba(0, 0, 0, 0.15);
+}
+.card .card-body_contact {
+  color: #828282;
+}
+.card .card-footer p {
+  cursor: pointer;
+}
+.card .card-footer_social {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 22rem;
+}
+.card .card-footer_social > a {
+  height: 3rem;
+  width: 3rem;
+  box-shadow: -7px -7px 17px rgba(255, 255, 255, 0.6), 7px 7px 17px rgba(70, 70, 70, 0.15);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 25px;
+}
+.card .card-footer_social > a:active {
+  box-shadow: inset -7px -7px 17px rgba(255, 255, 255, 0.6), inset 7px 7px 17px rgba(70, 70, 70, 0.15);
+}
+.card .card-footer_social > a:hover {
+  color: #95979C;
+  background: #F0F2F7;
+  box-shadow: 5px 5px 5px rgba(255, 255, 255, 0.6), -5px -5px 5px rgba(70, 70, 70, 0.15), 5px 5px 5px inset rgba(255, 255, 255, 0.6), -5px -5px 5px inset rgba(70, 70, 70, 0.15);
+}
+.card .card-footer_social i {
+  color: #707174;
+}
+
+@media (max-width: 320px) {
+  .card {
+    width: 85vw;
+  }
+  .card .card-footer_social {
+    width: 15rem;
+  }
+}
+@media (max-width: 768px) {
+  .card {
+    width: 90vw;
+  }
+  .card .card-footer_social {
+    width: 15rem;
+  }
+}

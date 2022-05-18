@@ -1,0 +1,75 @@
+$primary-color: #C62727;
+$secondary-color: yellow;
+$darker-grey-border: #ced4da;
+$lighter-grey-background: #eef0ef;
+
+
+@mixin buttonActionStyle{
+    &:hover{
+        cursor: pointer;
+    }
+    &:active{
+        transform: scale(0.98);
+    }
+    &:focus,&:active {
+        outline: none !important;
+        box-shadow: none !important;
+     }
+}
+@mixin categoryHeadline{
+    font-size: 30px;
+    font-weight: lighter;
+}
+/*mixin for checkout*/
+@mixin inputIcon {
+    width: 100%;
+        input{
+            height:60px;
+            margin:0;
+            width: 100%;
+            padding-left: 65px;
+            color: grey;
+        }
+        .input_img {
+            position:absolute;
+            top: 0;
+            bottom: 0;
+            left:20px;
+            height:60px;
+            font-size: 60px;
+            vertical-align: middle;
+            color:grey;
+        }
+}
+@mixin radioButtonStyle{
+    width: 1.3em;
+    height: 1.3em;
+    background-color: white;
+    border-radius: 50%;
+    vertical-align: middle;
+    border: 1px solid grey;
+    -webkit-appearance: none;
+    outline: none;
+    cursor: pointer;
+
+    &:checked{
+        background-color: $primary-color;
+    }
+}
+@mixin checkoutHover{
+    &:hover{
+        cursor: pointer;
+        background-color: #3ecf8e !important;
+        color: white !important;
+        span{
+           color: white;
+        }
+    }
+    &.selected{
+        background-color: #3ecf8e !important;
+        color: white !important;
+        span{
+           color: white;
+        }
+    }
+}
