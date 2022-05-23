@@ -22,17 +22,19 @@ import { Login_view } from './views/Login_view';
 import { Registrovat_view } from './views/Registrovat_view';
 import { MujUcetObjednavky_view } from './views/MujUcetObjednavky_view';
 import { MujUcet_view } from './views/MujUcet_view';
+import HeaderAdmin from './components/HeaderAdmin';
+import RestauraceAdmin_view from './views/admin/RestauraceAdmin_view'
 
 function App() {
-//   const [data, setData] = useState();
+  //   const [data, setData] = useState();
 
-//   useEffect(() => {
-//     const fetchData = async () => {
-//       const data = await axios.post(`http://localhost/php_react/backend/api/post/read.php`);
-//       setData(data.data)
-//     }
-//     fetchData();
-//   }, [])
+  //   useEffect(() => {
+  //     const fetchData = async () => {
+  //       const data = await axios.post(`http://localhost/php_react/backend/api/post/read.php`);
+  //       setData(data.data)
+  //     }
+  //     fetchData();
+  //   }, [])
 
 
   return (
@@ -40,14 +42,13 @@ function App() {
       {/* <Helmet>
             <title>Vše Food Delivery</title>
           </Helmet> */}
-      {/* {
-            (this.props.location.pathname!=='/login' && this.props.location.pathname!=='/register') ? <Header userLoggedIn = {false}/>:''
-          } */}
 
-      <Header userLoggedIn={false} />
+      {/* if i am in admin section */}
+      {window.location.pathname.includes('/admin') ? <HeaderAdmin /> : <Header userLoggedIn={false} />}
+
       <Container fluid className="contentWrap">
         <Row>
-          <Col/>
+          <Col />
           <Col xs={10}>
 
             <BrowserRouter>
@@ -60,13 +61,13 @@ function App() {
                 <Route path="/registrovat" element={<Registrovat_view />} />
                 <Route path="/muj-ucet" element={<MujUcet_view />} />
                 <Route path="/muj-ucet/objednavky" element={<MujUcetObjednavky_view />} />
+                <Route path="/admin/restaurace" element={<RestauraceAdmin_view />} />
               </Routes>
             </BrowserRouter>
-
           </Col>
-          <Col/>
+          <Col />
         </Row>
-        
+
 
 
       </Container>
