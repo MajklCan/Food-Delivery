@@ -7,7 +7,7 @@
   ini_set('display_startup_errors', '1');
   error_reporting(E_ALL);
 
-  include_once '../models/restaurant_model.php';
+  include_once '../../models/restaurant_model.php';
 
 
   $requestMethod = strtoupper($_SERVER["REQUEST_METHOD"]);

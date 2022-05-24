@@ -24,6 +24,7 @@ import { MujUcetObjednavky_view } from './views/MujUcetObjednavky_view';
 import { MujUcet_view } from './views/MujUcet_view';
 import HeaderAdmin from './components/HeaderAdmin';
 import RestauraceAdmin_view from './views/admin/RestauraceAdmin_view'
+import RestauraceVytvoritAdmin_view from './views/admin/RestauraceVytvoritAdmin_view';
 
 function App() {
   //   const [data, setData] = useState();
@@ -61,7 +62,9 @@ function App() {
                 <Route path="/registrovat" element={<Registrovat_view />} />
                 <Route path="/muj-ucet" element={<MujUcet_view />} />
                 <Route path="/muj-ucet/objednavky" element={<MujUcetObjednavky_view />} />
+                {/* admin */}
                 <Route path="/admin/restaurace" element={<RestauraceAdmin_view />} />
+                <Route path="/admin/restaurace/nova" element={<RestauraceVytvoritAdmin_view />} />
               </Routes>
             </BrowserRouter>
           </Col>
