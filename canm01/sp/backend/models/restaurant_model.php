@@ -47,7 +47,7 @@ class Restaurant {
     }
     public function createRestaurant() {
 
-      $sql = "INSERT INTO Restaurant VALUES (null, '$this->description', $this->deliveryPrice, $this->deliveryEnstimateMin, $this->openFrom, $this->openTo, $this->acceptsFoodVoucher)";
+      $sql = "INSERT INTO Restaurant VALUES (null, '$this->description', $this->deliveryPrice, $this->deliveryEnstimateMin, '$this->openFrom', '$this->openTo', $this->acceptsFoodVoucher)";
       $res = $this->db->query($sql);
 
       if($res) {
