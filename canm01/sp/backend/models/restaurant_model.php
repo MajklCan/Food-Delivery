@@ -34,6 +34,23 @@ class Restaurant {
       }
       return json_encode($arr, JSON_UNESCAPED_UNICODE);
     }
+
+    public function getRestaurantById() {
+
+      $sql = "SELECT * FROM Restaurant WHERE RestaurantID = $this->id";
+      $res = $this->db->query($sql);
+
+        
+      $arr = [];
+      
+      if ($res !== FALSE) {
+          while($row = $res->fetch_assoc()) {
+              $arr[] = $row;
+        }
+      }
+      return json_encode($arr, JSON_UNESCAPED_UNICODE);
+    }
+
     public function deleteRestaurant() {
 
       $sql = "DELETE FROM Restaurant WHERE RestaurantID = $this->id";
@@ -52,6 +69,16 @@ class Restaurant {
 
       if($res) {
         echo "restaurace uspesne vytvorena";
+      } else {
+        echo  $sql;
+      }
+    }
+    public function updateRestaurant() {
+      $sql = "UPDATE Restaurant SET Description='$this->description', DeliveryPrice=$this->deliveryPrice, DeliveryEstimateMin=$this->deliveryEnstimateMin, OpenFrom='$this->openFrom', OpenTo='$this->openTo', AcceptsFoodVoucher=$this->acceptsFoodVoucher WHERE RestaurantID = $this->id";
+      $res = $this->db->query($sql);
+
+      if($res) {
+        echo "restaurace uspesne upravena";
       } else {
         echo  $sql;
       }

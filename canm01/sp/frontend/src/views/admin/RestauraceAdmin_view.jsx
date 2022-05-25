@@ -30,7 +30,7 @@ const RestauraceAdmin_view = () => {
                         <div className='restaurant'>
                             {restaurant.Description}
                             <div>
-                                <button className='normalButton' >UPRAVIT</button>
+                                <button className='normalButton' onClick={() => window.location.href = `/admin/restaurace/upravit/${restaurant.RestaurantID}`}>UPRAVIT</button>
                                 <button className='normalButton' onClick={() => deleteRestaurant(restaurant.RestaurantID)}>SMAZAT</button>
                             </div>
                         </div>

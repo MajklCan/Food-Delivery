@@ -25,6 +25,7 @@ import { MujUcet_view } from './views/MujUcet_view';
 import HeaderAdmin from './components/HeaderAdmin';
 import RestauraceAdmin_view from './views/admin/RestauraceAdmin_view'
 import RestauraceVytvoritAdmin_view from './views/admin/RestauraceVytvoritAdmin_view';
+import RestauraceUpravitAdmin_view from './views/admin/RestauraceUpravitAdmin_view';
 
 function App() {
   //   const [data, setData] = useState();
@@ -65,6 +66,7 @@ function App() {
                 {/* admin */}
                 <Route path="/admin/restaurace" element={<RestauraceAdmin_view />} />
                 <Route path="/admin/restaurace/nova" element={<RestauraceVytvoritAdmin_view />} />
+                <Route path="/admin/restaurace/upravit/:id" element={<RestauraceUpravitAdmin_view />} />
               </Routes>
             </BrowserRouter>
           </Col>
