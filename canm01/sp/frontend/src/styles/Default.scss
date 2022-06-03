@@ -109,6 +109,12 @@ h6 {
 }
 
 /* crate restaurant */
+.formMainRestaurantChange {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
 .formCreateRestaurant {
     width: 500px;
     display: flex;

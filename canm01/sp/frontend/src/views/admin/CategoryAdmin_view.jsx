@@ -1,11 +1,11 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 
-const CategoryAdmin_view = () => {
+const CategoryAdmin_view = ({ idOfRestaurant }) => {
     const [categories, setCategories] = useState([]);
     useEffect(() => {
         const getCategories = async () => {
-            const data = await axios.get("http://localhost/www/canm01/sp/backend/api/category/getCategories.php");
+            const data = await axios.get(`http://localhost/www/canm01/sp/backend/api/category/getCategories.php?restaurantID=${idOfRestaurant}`);
             setCategories(data.data)
         }
         getCategories();
@@ -29,13 +29,13 @@ const CategoryAdmin_view = () => {
                         <div className='restaurant'>
                             {category.Name}
                             <div>
-                                {/* <button className='normalButton' onClick={() => window.location.href = `/admin/restaurace/upravit/${restaurant.RestaurantID}`}>UPRAVIT</button> */}
+                                <button className='normalButton' onClick={() => window.location.href = `/admin/kategorie/upravit/${category.RestaurntID}/${category.CategoryID}`}>UPRAVIT</button>
                                 <button className='normalButton' onClick={() => deleteCategory(category.CategoryID)}>SMAZAT</button>
                             </div>
                         </div>
                     ))
                 }
-                <button className='normalButton' onClick={() => window.location.href = "/admin/restaurace/nova"}>NOVÁ KATEGORIE</button>
+                <button className='normalButton' onClick={() => window.location.href = "/admin/kategorie/nova/" + idOfRestaurant}>NOVÁ KATEGORIE</button>
             </div>
         </div>
     )

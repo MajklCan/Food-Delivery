@@ -29,7 +29,7 @@ const RestauraceVytvoritAdmin_view = () => {
             {errors.openTo && <p>otevřeno do je povinné</p>}
             <input className='inputCreateRestaurant' placeholder='PŘIJÍMÁ SLEVOVÝ KUPÓN...' {...register('acceptsFoodVoucher', { pattern: /\d+/ })} />
             {errors.acceptsFoodVoucher && <p>odhadovaná cena je povinná</p>}
-            <input type="submit" className='submitHandlerCreateRestaurant normalButton' />
+            <input type="submit" value="VYTVOŘIT" className='submitHandlerCreateRestaurant normalButton' />
         </form>
     );
 }

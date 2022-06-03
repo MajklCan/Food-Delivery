@@ -1,6 +1,7 @@
 <?php 
 
-  header('Access-Control-Allow-Origin: *');
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Headers: *");
   header('Content-Type: application/json');
 
   ini_set('display_errors', '1');
@@ -11,21 +12,24 @@
 
 
   $requestMethod = strtoupper($_SERVER["REQUEST_METHOD"]);
-  $dataId = $_GET["restaurantID"];
+  // get data from frontend
+  $data = json_decode(file_get_contents("php://input"));
 
-  if ($requestMethod == 'GET') {
+  if ($requestMethod == 'POST') {
       try {
           $Category = new Category();
-          $Category->restaurantID = $dataId;
-          $content = $Category->getCategories();
+          $Category->name = $data->name;
+          $Category->priority = $data->priority;
+          $Category->restaurantID = $data->restaurantID;
+          $content = $Category->createCategory();
           echo $content;
       } catch (Error $e) {
           echo 'Something went wrong! Please contact support.
           '.$e;
       }
-  }elseif($requestMethod == 'POST') {
+  }elseif($requestMethod == 'GET') {
 
-          echo 'post';
+          echo 'get';
   
   } else {
       echo 'No action assinged to this endpoint + method';

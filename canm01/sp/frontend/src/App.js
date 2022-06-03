@@ -26,6 +26,8 @@ import HeaderAdmin from './components/HeaderAdmin';
 import RestauraceAdmin_view from './views/admin/RestauraceAdmin_view'
 import RestauraceVytvoritAdmin_view from './views/admin/RestauraceVytvoritAdmin_view';
 import RestauraceUpravitAdmin_view from './views/admin/RestauraceUpravitAdmin_view';
+import CategoryUpravitAdmin_view from './views/admin/CategoryUpravitAdmin_view';
+import CategoryVytvoritAdmin_view from './views/admin/CategoryVytvoritAdmin_view';
 
 function App() {
   //   const [data, setData] = useState();
@@ -67,6 +69,8 @@ function App() {
                 <Route path="/admin/restaurace" element={<RestauraceAdmin_view />} />
                 <Route path="/admin/restaurace/nova" element={<RestauraceVytvoritAdmin_view />} />
                 <Route path="/admin/restaurace/upravit/:id" element={<RestauraceUpravitAdmin_view />} />
+                <Route path="/admin/kategorie/upravit/:idOfRestaurant/:idOfCategory" element={<CategoryUpravitAdmin_view />} />
+                <Route path="/admin/kategorie/nova/:idOfRestaurant" element={<CategoryVytvoritAdmin_view />} />
               </Routes>
             </BrowserRouter>
           </Col>

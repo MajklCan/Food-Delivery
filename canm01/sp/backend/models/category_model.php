@@ -18,7 +18,7 @@ class Category {
 
     public function getCategories() {
 
-      $sql = "SELECT * FROM Category";
+      $sql = "SELECT * FROM Category WHERE RestaurntID = $this->restaurantID";
       $res = $this->db->query($sql);
 
         
@@ -32,6 +32,20 @@ class Category {
       return json_encode($arr, JSON_UNESCAPED_UNICODE);
     }
 
+    public function getCategoryById() {
+
+      $sql = "SELECT * FROM Category WHERE CategoryID = $this->id";
+      $res = $this->db->query($sql);
+        
+      $arr = [];
+      
+      if ($res !== FALSE) {
+          while($row = $res->fetch_assoc()) {
+              $arr[] = $row;
+        }
+      }
+      return json_encode($arr, JSON_UNESCAPED_UNICODE);
+    }
 
     public function deleteCategory() {
 
@@ -51,6 +65,16 @@ class Category {
 
       if($res) {
         echo "kategorie uspesne vytvorena";
+      } else {
+        echo  $sql;
+      }
+    }
+    public function updateCategory() {
+      $sql = "UPDATE Category SET Name='$this->name', Priority=$this->priority WHERE CategoryID = $this->id";
+      $res = $this->db->query($sql);
+
+      if($res) {
+        echo "kategorie uspesne upravena";
       } else {
         echo  $sql;
       }
