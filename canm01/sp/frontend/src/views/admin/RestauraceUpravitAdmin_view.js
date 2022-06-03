@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form';
 import { useParams } from 'react-router-dom';
+import CategoryAdmin_view from './CategoryAdmin_view';
 
 const RestauraceUpravitAdmin_view = () => {
     let { id } = useParams();
@@ -54,6 +55,7 @@ const RestauraceUpravitAdmin_view = () => {
                 {errors.acceptsFoodVoucher && <p>odhadovaná cena je povinná</p>}
                 <input type="submit" value="upravit" className='submitHandlerCreateRestaurant normalButton' />
             </form>
+            <CategoryAdmin_view />
         </div>
     )
 }
