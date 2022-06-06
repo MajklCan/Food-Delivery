@@ -15,8 +15,8 @@ const CategoryUpravitAdmin_view = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const data = await axios.get(`http://localhost/www/canm01/sp/backend/api/category/getCategoryById.php?id=${idOfRestaurant}`);
-            console.log(data.data);
+            const data = await axios.get(`http://localhost/www/canm01/sp/backend/api/category/getCategoryById.php?id=${idOfCategory}`);
+            console.log(data.data[0]);
             const currentCategory = data.data[0];
             console.log(currentCategory);
             setValue('name', currentCategory.Name, { shouldValidate: true });
