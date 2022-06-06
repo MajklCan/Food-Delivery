@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useEffect } from 'react'
 import { useForm } from 'react-hook-form';
 import { useParams } from 'react-router-dom';
-
+import ProductAdmin_view from './ProductAdmin_view'
 const CategoryUpravitAdmin_view = () => {
     let { idOfRestaurant, idOfCategory } = useParams();
 
@@ -32,7 +32,7 @@ const CategoryUpravitAdmin_view = () => {
     }
 
     return (
-        <div>
+        <div className="formMainRestaurantChange">
             <form className='formCreateRestaurant' onSubmit={handleSubmit(onSubmit)}>
                 <span>Úprava kategorie</span>
                 <input className='inputCreateRestaurant' placeholder='JMÉNO...' {...register('name', { required: true })} />
@@ -41,6 +41,7 @@ const CategoryUpravitAdmin_view = () => {
                 {errors.priority && <p>priorita je povinná</p>}
                 <input type="submit" value="UPRAVIT" className='submitHandlerCreateRestaurant normalButton' />
             </form>
+            <ProductAdmin_view idOfCategory={idOfCategory} idOfRestaurant={idOfRestaurant}/>
         </div>
     )
 }

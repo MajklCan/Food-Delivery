@@ -28,6 +28,8 @@ import RestauraceVytvoritAdmin_view from './views/admin/RestauraceVytvoritAdmin_
 import RestauraceUpravitAdmin_view from './views/admin/RestauraceUpravitAdmin_view';
 import CategoryUpravitAdmin_view from './views/admin/CategoryUpravitAdmin_view';
 import CategoryVytvoritAdmin_view from './views/admin/CategoryVytvoritAdmin_view';
+import ProductVytvoritAdmin_view from './views/admin/ProductVytvoritAdmin_view';
+import ProductUpravitAdmin_view from './views/admin/ProductUpravitAdmin_view';
 
 function App() {
   //   const [data, setData] = useState();
@@ -71,6 +73,8 @@ function App() {
                 <Route path="/admin/restaurace/upravit/:id" element={<RestauraceUpravitAdmin_view />} />
                 <Route path="/admin/kategorie/upravit/:idOfRestaurant/:idOfCategory" element={<CategoryUpravitAdmin_view />} />
                 <Route path="/admin/kategorie/nova/:idOfRestaurant" element={<CategoryVytvoritAdmin_view />} />
+                <Route path="/admin/produkt/nova/:idOfRestaurant/:idOfCategory" element={<ProductVytvoritAdmin_view />} />
+                <Route path="/admin/produkt/upravit/:idOfRestaurant/:idOfCategory/:idOfProduct" element={<ProductUpravitAdmin_view />} />
               </Routes>
             </BrowserRouter>
           </Col>
