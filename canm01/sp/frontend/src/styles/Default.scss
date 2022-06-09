@@ -62,7 +62,7 @@ h6 {
         font-weight: bold;
 
         &:hover {
-            color: rgb(134, 134, 134);
+            color: $hoverEffectColorButton;
         }
     }
 }
@@ -72,7 +72,6 @@ h6 {
     span {
         font-size: 45px;
         font-weight: bold;
-
     }
 
     .restaurantsContainer {
@@ -81,13 +80,66 @@ h6 {
         border-top: 2px solid black;
 
         .restaurant {
-
             padding: 15px;
             border-bottom: 2px solid black;
+            display: flex;
+            justify-content: space-between;
+
+            button {
+                margin: 0px 10px 0px 10px;
+            }
+        }
+
+        button {
+            margin-top: 25px;
+        }
+    }
+}
+
+.normalButton {
+    padding: 4px 15px;
+    background-color: black;
+    color: white;
+    font-weight: 700;
+    border: none;
+
+    &:hover {
+        background-color: $hoverEffectColorButton;
+    }
+}
+
+/* crate restaurant */
+.formMainRestaurantChange {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.formCreateRestaurant {
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    span {
+        font-size: 45px;
+        font-weight: bold;
+    }
+
+    .inputCreateRestaurant {
+        width: 100%;
+        border: none;
+        border-bottom: 2px solid black;
+        padding: 15px;
+
+        &:focus {
+            outline: none;
         }
     }
 
-
+    .submitHandlerCreateRestaurant {
+        margin-top: 25px;
+    }
 }
 
 /* Nav */

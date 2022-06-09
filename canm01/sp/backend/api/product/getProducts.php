@@ -7,22 +7,18 @@
   ini_set('display_startup_errors', '1');
   error_reporting(E_ALL);
 
-  include_once '../models/restaurant_model.php';
+  include_once '../../models/product_model.php';
 
 
   $requestMethod = strtoupper($_SERVER["REQUEST_METHOD"]);
-  //$arrQueryStringParams = $this->getQueryStringParams();
+
+  $dataId = $_GET["categoryID"];
 
   if ($requestMethod == 'GET') {
       try {
-          $Restaurant = new Restaurant();
-
-          // $intLimit = 10;
-          // if (isset($arrQueryStringParams['limit']) && $arrQueryStringParams['limit']) {
-          //     $intLimit = $arrQueryStringParams['limit'];
-          // }
-
-          $content = $Restaurant->getRestaurants();
+          $Product = new Product();
+          $Product->categoryID = $dataId;
+          $content = $Product->getProducts();
           echo $content;
       } catch (Error $e) {
           echo 'Something went wrong! Please contact support.

@@ -3,45 +3,54 @@ $secondary-color: yellow;
 $darker-grey-border: #ced4da;
 $lighter-grey-background: #eef0ef;
 
+$hoverEffectColorButton: rgb(134, 134, 134);
 
-@mixin buttonActionStyle{
-    &:hover{
+@mixin buttonActionStyle {
+    &:hover {
         cursor: pointer;
     }
-    &:active{
+
+    &:active {
         transform: scale(0.98);
     }
-    &:focus,&:active {
+
+    &:focus,
+    &:active {
         outline: none !important;
         box-shadow: none !important;
-     }
+    }
 }
-@mixin categoryHeadline{
+
+@mixin categoryHeadline {
     font-size: 30px;
     font-weight: lighter;
 }
+
 /*mixin for checkout*/
 @mixin inputIcon {
     width: 100%;
-        input{
-            height:60px;
-            margin:0;
-            width: 100%;
-            padding-left: 65px;
-            color: grey;
-        }
-        .input_img {
-            position:absolute;
-            top: 0;
-            bottom: 0;
-            left:20px;
-            height:60px;
-            font-size: 60px;
-            vertical-align: middle;
-            color:grey;
-        }
+
+    input {
+        height: 60px;
+        margin: 0;
+        width: 100%;
+        padding-left: 65px;
+        color: grey;
+    }
+
+    .input_img {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 20px;
+        height: 60px;
+        font-size: 60px;
+        vertical-align: middle;
+        color: grey;
+    }
 }
-@mixin radioButtonStyle{
+
+@mixin radioButtonStyle {
     width: 1.3em;
     height: 1.3em;
     background-color: white;
@@ -52,24 +61,28 @@ $lighter-grey-background: #eef0ef;
     outline: none;
     cursor: pointer;
 
-    &:checked{
+    &:checked {
         background-color: $primary-color;
     }
 }
-@mixin checkoutHover{
-    &:hover{
+
+@mixin checkoutHover {
+    &:hover {
         cursor: pointer;
         background-color: #3ecf8e !important;
         color: white !important;
-        span{
-           color: white;
+
+        span {
+            color: white;
         }
     }
-    &.selected{
+
+    &.selected {
         background-color: #3ecf8e !important;
         color: white !important;
-        span{
-           color: white;
+
+        span {
+            color: white;
         }
     }
 }
