@@ -14,7 +14,7 @@ const RestauraceAdmin_view = () => {
     }, [])
 
     const deleteRestaurant = async (idOfRestaurant) => {
-        const ahoj = await axios({
+        await axios({
             method: 'GET',
             url: `http://localhost/www/canm01/sp/backend/api/restaurant/deleteRestaurant.php?id=${idOfRestaurant}`,
         })

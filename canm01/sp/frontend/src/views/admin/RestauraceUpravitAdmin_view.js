@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form';
 import { useParams } from 'react-router-dom';
+import CategoryAdmin_view from './CategoryAdmin_view';
 
 const RestauraceUpravitAdmin_view = () => {
     let { id } = useParams();
@@ -13,13 +14,10 @@ const RestauraceUpravitAdmin_view = () => {
         formState: { errors },
     } = useForm();
 
-    const [restaurantData, setRestaurantData] = useState([]);
-
     useEffect(() => {
         const fetchData = async () => {
             const data = await axios.get(`http://localhost/www/canm01/sp/backend/api/restaurant/getRestaurantById.php?id=${id}`);
             const currentRestaurant = data.data[0];
-            setRestaurantData(currentRestaurant);
             setValue('description', currentRestaurant.Description, { shouldValidate: true });
             setValue('deliveryPrice', currentRestaurant.DeliveryPrice, { shouldValidate: true });
             setValue('deliveryEnstimateMin', currentRestaurant.DeliveryEstimateMin, { shouldValidate: true });
@@ -37,7 +35,7 @@ const RestauraceUpravitAdmin_view = () => {
     }
 
     return (
-        <div>
+        <div className='formMainRestaurantChange'>
             <form className='formCreateRestaurant' onSubmit={handleSubmit(onSubmit)}>
                 <span>Úprava restaurace</span>
                 <input className='inputCreateRestaurant' placeholder='POPIS...' {...register('description', { required: true })} />
@@ -52,8 +50,9 @@ const RestauraceUpravitAdmin_view = () => {
                 {errors.openTo && <p>otevřeno do je povinné</p>}
                 <input className='inputCreateRestaurant' placeholder='PŘIJÍMÁ SLEVOVÝ KUPÓN...' {...register('acceptsFoodVoucher', { pattern: /\d+/ })} />
                 {errors.acceptsFoodVoucher && <p>odhadovaná cena je povinná</p>}
-                <input type="submit" value="upravit" className='submitHandlerCreateRestaurant normalButton' />
+                <input type="submit" value="UPRAVIT" className='submitHandlerCreateRestaurant normalButton' />
             </form>
+            <CategoryAdmin_view idOfRestaurant={id} />
         </div>
     )
 }
