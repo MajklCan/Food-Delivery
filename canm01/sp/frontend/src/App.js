@@ -5,6 +5,7 @@ import { AppContextProvider } from './context'
 import { BrowserRouter, Routes, Route, } from "react-router-dom";
 import axios from 'axios';
 import { Container, Row, Col } from 'react-bootstrap';
+import {ErrorBoundary} from 'react-error-boundary'
 //import dotenv from 'dotenv'
 
 // Styles
@@ -53,6 +54,13 @@ function App() {
           <Col />
           <Col xs={10}>
 
+          <ErrorBoundary
+              FallbackComponent={ErrorFallback}
+              onReset={() => {
+                // reset the state of your app so the error doesn't happen again
+              }}
+            >
+
             <BrowserRouter>
               <Routes>
                 <Route path="/" element={<NabidkaRestaurace_view />} />
@@ -69,6 +77,7 @@ function App() {
                 <Route path="/admin/restaurace/upravit/:id" element={<RestauraceUpravitAdmin_view />} />
               </Routes>
             </BrowserRouter>
+            </ErrorBoundary>
           </Col>
           <Col />
         </Row>
@@ -80,6 +89,17 @@ function App() {
 
     </AppContextProvider >
   );
+}
+
+function ErrorFallback({error, resetErrorBoundary}) {
+  return (
+    <div role="alert">
+      <p>Chyba:</p>
+      <pre>{error.message}</pre>
+      <pre><small>{error.stack}</small></pre>
+      <button onClick={resetErrorBoundary}>Načíst znovu</button>
+    </div>
+  )
 }
 
 export default App;

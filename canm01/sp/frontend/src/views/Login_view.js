@@ -5,7 +5,7 @@ import { AppContext } from '../context'
 
 export const Login_view = () => {
 
-  const context = useContext(AppContext)
+  const { state, dispatch } = useContext(AppContext)
 
 	const [email, setEmail] = useState("")
 	const [password, setPassword] = useState("")
